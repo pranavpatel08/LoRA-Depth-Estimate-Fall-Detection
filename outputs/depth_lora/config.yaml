@@ -1,0 +1,39 @@
+data:
+  batch_size: 8
+  max_depth: 10.0
+  num_workers: 4
+  nyu_path: data/nyu_depth_v2/nyu_depth_v2_labeled.mat
+  target_size:
+  - 518
+  - 518
+logging:
+  log_every: 10
+  project: lora-depth-fall
+  run_name: depth-lora-nyu
+model:
+  lora_alpha: 32
+  lora_dropout: 0.1
+  lora_r: 16
+  lora_target_modules:
+  - query
+  - key
+  - value
+  - dense
+  name: depth-anything/Depth-Anything-V2-Small-hf
+paths:
+  checkpoint_dir: outputs/depth_lora/checkpoints
+  output_dir: outputs/depth_lora
+seed: 42
+training:
+  early_stopping: true
+  epochs: 80
+  eval_every: 2
+  grad_loss_weight: 0.5
+  l1_loss_weight: 1.0
+  lr: 2.0e-05
+  min_delta: 0.001
+  patience: 12
+  save_every: 10
+  use_amp: true
+  warmup_epochs: 4
+  weight_decay: 0.01

@@ -1,0 +1,54 @@
+# LoRA Depth Estimation Training Config
+
+# Model
+model:
+  name: "depth-anything/Depth-Anything-V2-Small-hf"
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.1
+  lora_target_modules: ["query", "key", "value", "dense"]
+
+# Data
+data:
+  nyu_path: "data/nyu_depth_v2/nyu_depth_v2_labeled.mat"
+  target_size: [518, 518]  # DAv2 native size
+  max_depth: 10.0
+  batch_size: 8
+  num_workers: 4
+
+# Training
+training:
+  epochs: 80
+  lr: 2.0e-5
+  weight_decay: 0.01
+  warmup_epochs: 4
+  
+  # Loss weights
+  l1_loss_weight: 1.0
+  grad_loss_weight: 0.5
+
+  # Early stopping
+  early_stopping: true
+  patience: 12
+  min_delta: 0.001  # Minimum improvement to count as progress
+  
+  # Mixed precision
+  use_amp: true
+  
+  # Checkpointing
+  save_every: 10
+  eval_every: 2
+
+# Logging
+logging:
+  project: "lora-depth-fall"
+  run_name: "depth-lora-nyu"
+  log_every: 10
+
+# Paths
+paths:
+  output_dir: "outputs/depth_lora"
+  checkpoint_dir: "outputs/depth_lora/checkpoints"
+
+# Reproducibility
+seed: 42

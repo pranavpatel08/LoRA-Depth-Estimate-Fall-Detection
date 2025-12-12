@@ -1,0 +1,55 @@
+# Fall Detection Training Config
+
+# Model
+model:
+  in_channels: 1
+  spatial_channels: 64
+  temporal_channels: [64, 128]
+  num_classes: 2
+  dropout: 0.5
+
+# Data
+data:
+  data_path: "data/ur_fall"
+  window_size: 16
+  window_stride: 8
+  target_size: [224, 224]
+  modality: "depth"  # "depth", "rgb", or "both"
+  batch_size: 8
+  num_workers: 4
+
+# Training
+training:
+  epochs: 100
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+  warmup_epochs: 5
+  
+  # Class weighting for imbalance
+  use_class_weights: true
+  
+  # Early stopping
+  early_stopping: true
+  patience: 12
+  min_delta: 0.005
+  
+  # Mixed precision
+  use_amp: true
+  
+  # Checkpointing
+  save_every: 20
+  eval_every: 1
+
+# Logging
+logging:
+  project: "lora-depth-fall"
+  run_name: "fall-detector-real-depth"
+  log_every: 5
+
+# Paths
+paths:
+  output_dir: "outputs/fall_detection"
+  checkpoint_dir: "outputs/fall_detection/checkpoints"
+
+# Reproducibility
+seed: 42

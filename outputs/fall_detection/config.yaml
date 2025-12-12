@@ -1,0 +1,38 @@
+data:
+  batch_size: 8
+  data_path: data/ur_fall
+  modality: depth
+  num_workers: 4
+  target_size:
+  - 224
+  - 224
+  window_size: 16
+  window_stride: 8
+logging:
+  log_every: 5
+  project: lora-depth-fall
+  run_name: fall-detector-real-depth
+model:
+  dropout: 0.5
+  in_channels: 1
+  num_classes: 2
+  spatial_channels: 64
+  temporal_channels:
+  - 64
+  - 128
+paths:
+  checkpoint_dir: outputs/fall_detection/checkpoints
+  output_dir: outputs/fall_detection
+seed: 42
+training:
+  early_stopping: true
+  epochs: 100
+  eval_every: 1
+  lr: 0.001
+  min_delta: 0.005
+  patience: 12
+  save_every: 20
+  use_amp: true
+  use_class_weights: true
+  warmup_epochs: 5
+  weight_decay: 0.0001

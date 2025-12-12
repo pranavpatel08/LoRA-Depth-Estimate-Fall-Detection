@@ -1,0 +1,33 @@
+lora:
+  accuracy: 1.0
+  auc: 1.0
+  confusion_matrix:
+  - - 149
+    - 0
+  - - 0
+    - 47
+  f1: 1.0
+  precision: 1.0
+  recall: 1.0
+real:
+  accuracy: 1.0
+  auc: 1.0
+  confusion_matrix:
+  - - 149
+    - 0
+  - - 0
+    - 47
+  f1: 1.0
+  precision: 1.0
+  recall: 1.0
+zeroshot:
+  accuracy: 0.25510204081632654
+  auc: 0.9827930886762816
+  confusion_matrix:
+  - - 3
+    - 146
+  - - 0
+    - 47
+  f1: 0.39166666666666666
+  precision: 0.24352331606217617
+  recall: 1.0

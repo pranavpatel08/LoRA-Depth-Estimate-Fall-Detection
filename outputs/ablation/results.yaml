@@ -1,0 +1,44 @@
+LoRA Depth:
+  accuracy: 1.0
+  auc: 1.0
+  confusion_matrix:
+  - - 149
+    - 0
+  - - 0
+    - 47
+  f1: 1.0
+  precision: 1.0
+  recall: 1.0
+RGB Only:
+  accuracy: 1.0
+  auc: 1.0
+  confusion_matrix:
+  - - 149
+    - 0
+  - - 0
+    - 47
+  f1: 1.0
+  precision: 1.0
+  recall: 1.0
+Real Depth:
+  accuracy: 1.0
+  auc: 1.0
+  confusion_matrix:
+  - - 149
+    - 0
+  - - 0
+    - 47
+  f1: 1.0
+  precision: 1.0
+  recall: 1.0
+Zero-shot Depth:
+  accuracy: 1.0
+  auc: 1.0
+  confusion_matrix:
+  - - 149
+    - 0
+  - - 0
+    - 47
+  f1: 1.0
+  precision: 1.0
+  recall: 1.0
